@@ -32,7 +32,7 @@ public class C3CaptchaVerifier {
             questionShape = randomQuestion
         }
     }
-
+@available(iOS 14.0, *)
     public func isShapeCorrect(drawing: PKDrawing) -> Bool {
         let strokes = drawing.strokes
         guard strokes.count == 1, let firstStroke = strokes.first else { return false }
@@ -61,7 +61,7 @@ public class C3CaptchaVerifier {
         }
     }
     
-    // Implementação das funções auxiliares (mantida privada)
+   @available(iOS 14.0, *)
     private func isApproximateCircle(_ stroke: PKStroke) -> Bool {
         let boundingRect = boundingBox(for: stroke)
         let width = boundingRect.width
