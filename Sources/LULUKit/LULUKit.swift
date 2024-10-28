@@ -1,5 +1,5 @@
 // Donation PIX: 86988481516
- // LULUKit (Samuel Campos de Andrade)
+// LULUKit (Samuel Campos de Andrade)
 
 import Foundation
 import PencilKit
