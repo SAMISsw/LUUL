@@ -3,6 +3,7 @@
 import Foundation
 import PencilKit
 
+@available(iOS 13.0, *)
 public class C3CaptchaVerifier {
     public var currentShape: String = ""
     public var questionShape: String = ""
@@ -60,7 +61,7 @@ public class C3CaptchaVerifier {
         }
     }
     
-
+    // Implementação das funções auxiliares (mantida privada)
     private func isApproximateCircle(_ stroke: PKStroke) -> Bool {
         let boundingRect = boundingBox(for: stroke)
         let width = boundingRect.width
@@ -107,7 +108,21 @@ public class C3CaptchaVerifier {
     
     private func boundingBox(for stroke: PKStroke) -> CGRect {
         let path = stroke.path
-        return path.boundingBox 
+        var minX: CGFloat = .infinity
+        var maxX: CGFloat = -.infinity
+        var minY: CGFloat = .infinity
+        var maxY: CGFloat = -.infinity
+        
+        for point in path {
+            let x = point.location.x
+            let y = point.location.y
+            if x < minX { minX = x }
+            if x > maxX { maxX = x }
+            if y < minY { minY = y }
+            if y > maxY { maxY = y }
+        }
+        
+        return CGRect(x: minX, y: minY, width: maxX - minX, height: maxY - minY)
     }
 }
 
