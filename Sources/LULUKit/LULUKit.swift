@@ -4,7 +4,7 @@ import Foundation
 import PencilKit
 
 @available(iOS 13.0, *)
-public class C3CaptchaVerifier {
+public class C3CaptchaVerifier: ObservableObject {
     public var currentShape: String = ""
     public var questionShape: String = ""
 
