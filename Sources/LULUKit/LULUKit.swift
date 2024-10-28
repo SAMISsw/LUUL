@@ -69,7 +69,7 @@ public class C3CaptchaVerifier {
         let aspectRatio = width / height
         return abs(aspectRatio - 1.0) < 0.2 && (width * height) > 1000
     }
-    
+    @available(iOS 14.0, *)
     private func isApproximateRectangle(_ stroke: PKStroke) -> Bool {
         let boundingRect = boundingBox(for: stroke)
         let width = boundingRect.width
@@ -77,35 +77,35 @@ public class C3CaptchaVerifier {
         let aspectRatio = width / height
         return (abs(aspectRatio - 1.0) < 0.2 || abs(aspectRatio - 2.0) < 0.2) && (width * height) > 1000
     }
-    
+    @available(iOS 14.0, *)
     private func isApproximateTriangle(_ stroke: PKStroke) -> Bool {
         return stroke.path.count >= 3
     }
-    
+    @available(iOS 14.0, *)
     private func isApproximateLine(_ stroke: PKStroke) -> Bool {
         return stroke.path.count >= 2
     }
-    
+    @available(iOS 14.0, *)
     private func isApproximatePentagon(_ stroke: PKStroke) -> Bool {
         return stroke.path.count >= 5
     }
-    
+    @available(iOS 14.0, *)
     private func isApproximateHexagon(_ stroke: PKStroke) -> Bool {
         return stroke.path.count >= 6
     }
-    
+    @available(iOS 14.0, *)
     private func isApproximateStar(_ stroke: PKStroke) -> Bool {
         return stroke.path.count >= 10
     }
-    
+    @available(iOS 14.0, *)
     private func isApproximateHeart(_ stroke: PKStroke) -> Bool {
         return stroke.path.count >= 10
     }
-    
+    @available(iOS 14.0, *)
     private func isApproximateDiamond(_ stroke: PKStroke) -> Bool {
         return stroke.path.count >= 4
     }
-    
+    @available(iOS 14.0, *)
     private func boundingBox(for stroke: PKStroke) -> CGRect {
         let path = stroke.path
         var minX: CGFloat = .infinity
@@ -125,15 +125,15 @@ public class C3CaptchaVerifier {
         return CGRect(x: minX, y: minY, width: maxX - minX, height: maxY - minY)
     }
 }
-
+@available(iOS 14.0, *)
 public struct CGPointWrapper: Hashable {
     let location: CGPoint
-    
+
     public func hash(into hasher: inout Hasher) {
         hasher.combine(location.x)
         hasher.combine(location.y)
     }
-    
+  
     public static func == (lhs: CGPointWrapper, rhs: CGPointWrapper) -> Bool {
         return lhs.location == rhs.location
     }
