@@ -139,3 +139,16 @@ public struct CGPointWrapper: Hashable {
         return lhs.location == rhs.location
     }
 }
+@available(iOS 14.0, *)
+struct CanvasView: UIViewRepresentable {
+    @Binding var canvasView: PKCanvasView
+    
+    func makeUIView(context: Context) -> PKCanvasView {
+        canvasView.isOpaque = false
+        canvasView.backgroundColor = .clear
+        canvasView.allowsFingerDrawing = true
+        return canvasView
+    }
+    
+    func updateUIView(_ uiView: PKCanvasView, context: Context) {}
+}
