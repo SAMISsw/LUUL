@@ -10,8 +10,9 @@ Samuel, gshababa321@gmail.com
 
 ## License
 
-MyLibrary is available under the MIT license. See the LICENSE file for more info.
+LULUKit is available under the MIT license. See the LICENSE file for more info.
 
+## LULUKit Example Code
 ```swift
 
 import SwiftUI
