@@ -80,4 +80,3 @@ struct CanvasView: UIViewRepresentable {
     func updateUIView(_ uiView: PKCanvasView, context: Context) {}
 }
 
-'''
